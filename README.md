@@ -1,6 +1,6 @@
 <p align="center">
   <a src='https://www.onesaitplatform.com/'>
-    <img src='https://github.com/onesaitplatform/onesaitplatform-cloud/tree/master/resources/images/onesait-platform-logo.png' />
+    <img src='https://raw.githubusercontent.com/onesaitplatform/onesaitplatform-cloud/master/resources/images/onesait-platform-logo.png' />
   </a>
 </p>
 
