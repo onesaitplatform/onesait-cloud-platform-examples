@@ -11,6 +11,7 @@ Let´s see:
 
 * **android-health-data-example**: example Android application in which a patient gives permission to a specific doctor to consult their medical data (modeled as an ontology) and once reviewed the doctor's permission is revoked
 * **binary-ontology-example**. Java application that shows how to create ontologies with support for binaries (images) and how to insert this binary
+* **binary-repository-rest-example**: example to store files on the realtime binary repository by an API Rest from the platform
 * **chatbot**. example of Bot web able to answer different questions about environmental quality in Helsinki via NLP techniques.
 * **device-simulator-example**. sample Java application that simulates inserts just like a device would
 * **digitaltwin-sensehat**. modeling example of a SenseHat as Digital Twin platform. The example has the 2 parts: the execution of the Digital Twin of the SenseHat as Java application and an HTML5 application that allows to interact with the Digital Twin
