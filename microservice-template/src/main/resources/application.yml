@@ -1,0 +1,38 @@
+security.ignored: /**
+
+management.security.enabled: false
+
+## WEBSERVER CONFIG
+server:
+   port: 10000
+   servlet.context-path: /example
+   contextPath: /example
+spring:
+  application.name: example
+  
+example:
+   rest:
+      enable: true
+      swaggerhost: localhost:10000
+
+## ONESAIT PLATFORM SPECIFIC CONFIG    
+onesaitplatform:
+  iotclient:
+    urlRestIoTBroker: https://development.onesaitplatform.com/iot-broker
+    sslverify: true
+    token: 908c5043f7174583a8d123afd66a4609
+    deviceTemplate: MLM_Back_IoTClient
+    device: MLM_Back_IoTClient
+    connectTimeoutInSec: 60
+    writeTimeoutInSec: 30
+    readTimeoutInSec: 60
+
+## LOGGING CONF
+logging:
+   path: ./target/ 
+   file: ${spring.application.name}
+   level:
+      com.minsait: DEBUG 
+      org.springframework.boot: INFO
+#      org.springframework.boot.autoconfigure: DEBUG
+

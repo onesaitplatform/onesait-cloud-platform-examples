@@ -1,0 +1,11 @@
+onesaitplatform:
+  iotclient:
+    urlRestIoTBroker: ${ONESAITPLATFORM_IOTCLIENT_URLRESTIOTBROKER}
+mlm:
+   rest:
+      enable: true
+      swaggerhost: ${SERVER_NAME}
+## LOGGING CONF
+logging:
+   path: /var/log/platform-logs 
+      
