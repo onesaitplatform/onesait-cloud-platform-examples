@@ -1,0 +1,13 @@
+.*.md.html
+.DS_Store
+.classpath
+.factorypath
+.gradle
+.idea
+.metadata
+.project
+.rtecommenders
+.settings
+.springBeans
+.vscode
+/__pycache__/
