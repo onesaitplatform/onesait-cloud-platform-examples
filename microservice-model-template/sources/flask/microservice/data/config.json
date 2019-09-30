@@ -1,0 +1,19 @@
+{
+    "NAME" : "Precipitation Binary Predictor",
+    "ENDPOINT": "PrecipitationBinaryPredictor",
+    "VERSION": 0,
+    "DESCRIPTION": "Modelo de prediccion de precipitacion binario",
+    "PLATFORM_HOST": "<host>",
+    "PLATFORM_PORT": 443,
+    "PLATFORM_DIGITAL_CLIENT": "<iot_client>",
+    "PLATFORM_DIGITAL_CLIENT_TOKEN": null,
+    "PLATFORM_DIGITAL_CLIENT_PROTOCOL": "https",
+    "PLATFORM_DIGITAL_CLIENT_AVOID_SSL_CERTIFICATE": true,
+    "PLATFORM_ONTOLOGY_DATA": null,
+    "PLATFORM_QUERY_DATA": "db.{ontology}.find()",
+    "MODEL_FILE": "precipitation_model.pkl",
+    "PREPROCESSOR_FILE": "precipitation_scaler.pkl",
+    "LABELS_FILE":  "labels.json",
+    "LOG_FOLDER": "/var/log/platform-logs"
+    
+}

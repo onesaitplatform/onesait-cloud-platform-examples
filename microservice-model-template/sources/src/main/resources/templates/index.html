@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+
+
+<body>
+
+<a th:if="!${username}" href="login/oauth">Login</a>
+</body>
+<div th:if="${username}" >
+  <a href="user/info" target="_blank">User info</a>
+</div>
+<div>
+  <a href="swagger-ui.html" target="_blank" >Swagger Rest Services</a>
+</div>
+</html>

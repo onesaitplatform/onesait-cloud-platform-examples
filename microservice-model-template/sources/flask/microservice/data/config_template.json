@@ -1,0 +1,18 @@
+{
+    "NAME": "Default Model Service",
+    "ENDPOINT": "DefaultModelService",
+    "VERSION": 0,
+    "DESCRIPTION": "Default Model Service to predict nothing",
+    "PLATFORM_HOST": "iotbrokerservice",
+    "PLATFORM_PORT": 19000,
+    "PLATFORM_DIGITAL_CLIENT": "<iot_client>",
+    "PLATFORM_DIGITAL_CLIENT_TOKEN": null,
+    "PLATFORM_DIGITAL_CLIENT_PROTOCOL": "http",
+    "PLATFORM_DIGITAL_CLIENT_AVOID_SSL_CERTIFICATE": false,
+    "PLATFORM_ONTOLOGY_DATA": null,
+    "PLATFORM_QUERY_DATA": "db.{ontology}.find()",
+    "MODEL_FILE": "default_model.pkl",
+    "PREPROCESSOR_FILE": "default_preprocessor.pkl",
+    "LABELS_FILE": "labels.json",
+    "SUPERVISOR_ENDPOINT": null
+}

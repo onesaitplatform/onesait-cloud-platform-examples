@@ -1,0 +1,55 @@
+server: 
+   port: 30010   
+   tomcat:
+      access_log_enabled: true
+      basedir: target/tomcat
+   servlet:
+      contextPath: /modelservice 
+   
+spring:
+  thymeleaf: ## Thymeleaf Config
+      cache: false  
+  main.allow-bean-definition-overriding: true
+  application.name: microservice
+  boot.admin: #Spring Boot Admin Config    
+      client.url: http://localhost:18100/monitoring
+      client.username: operations
+      client.password: changeIt!
+      client.metadata.user.name: ${spring.boot.admin.username}
+      client.metadata.user.password: ${spring.boot.admin.password}
+      client.service-url: http://localhost:30010/modelservice
+
+onesaitplatform:
+  remoteModelService:
+    uri: http://localhost:5000
+  supervisor:
+    useSupervisor: false
+
+security:
+  basic:
+    enabled: false
+    avoidSsl: true
+  oauth2:
+    client:
+      clientId: onesaitplatform
+      clientSecret: onesaitplatform
+      accessTokenUri: http://localhost:21000/oauth-server/oauth/token
+      #accessTokenUri: https://<platform-host>/oauth-server/oauth/token
+      userAuthorizationUri: http://localhost:21000/oauth-server/oauth/authorize
+      #userAuthorizationUri: https://<platform-host>/oauth-server/oauth/authorize
+      checkTokenEndpointUrl: http://localhost:21000/oauth-server/oauth/check_token
+      #checkTokenEndpointUrl: https://<platform-host>/oauth-server/oauth/check_token
+      useCurrentUri: true
+    resource:
+      userInfoUri: http://localhost:21000/oauth-server/user
+      #userInfoUri: https://<platform-host>/oauth-server/user
+
+
+    ## LOGGING CONF
+logging:
+   path: /tmp/log/platform-logs
+   file: ${spring.application.name}
+   level:
+      com.minsait: INFO 
+      #org.springframework: DEBUG
+

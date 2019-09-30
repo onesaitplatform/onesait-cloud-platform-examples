@@ -1,0 +1,35 @@
+spring:
+  boot.admin: #Spring Boot Admin Config    
+      client.url: http://${ONESAIT_SERVER_NAME}/monitoring
+      client.service-url: http://${SERVER_NAME}/modelservice
+server: 
+   port: ${PORT}   
+   servlet:
+      contextPath: ${CONTEXT_PATH}  
+
+
+onesaitplatform:
+  remoteModelService:
+    uri: http://localhost:5000
+  supervisor:
+    useSupervisor: false
+    
+
+security:
+  basic:
+    avoidSsl: true
+  oauth2:
+    client:
+      clientId: ${OAUTH_CLIENT}
+      clientSecret: ${OAUTH_SECRET}
+      accessTokenUri: https://${ONESAIT_SERVER_NAME}/oauth-server/oauth/token
+      userAuthorizationUri: https://${ONESAIT_SERVER_NAME}/oauth-server/oauth/authorize
+      checkTokenEndpointUrl: https://${ONESAIT_SERVER_NAME}/oauth-server/oauth/check_token
+      preEstablishedRedirectUri: https://${SERVER_NAME}/microservice/login/oauth
+    resource:
+      userInfoUri: https://${ONESAIT_SERVER_NAME}/oauth-server/user
+      
+## LOGGING CONF
+logging:
+   path: /var/log/platform-logs
+
