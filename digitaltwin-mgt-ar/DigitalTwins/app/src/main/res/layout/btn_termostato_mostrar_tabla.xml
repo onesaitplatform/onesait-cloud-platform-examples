@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btnMostrarTabla"
+    android:layout_width="8dp"
+    android:layout_height="8dp"
+    android:background="@drawable/ic_view_boton_tabla"
+    android:scaleType="fitCenter" />

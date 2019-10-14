@@ -1,0 +1,1 @@
+{"title":"CLM","links":{"actions":"thing/CLM/actions","events":"thing/CLM/events"},"description":"Orquestador CLM","actions":{"airQualityCampaign":{},"tempAlert":{}},"events":{"ping":{"description":"Ping"},"register":{"description":"Register"},"procedureCampaignLevel0AirQuality":{},"procedureCampaignLevel1AirQuality":{}}}

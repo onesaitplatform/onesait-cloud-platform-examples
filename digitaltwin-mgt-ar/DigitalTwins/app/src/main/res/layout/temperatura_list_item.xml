@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="0dp">
+
+    <ImageView
+        android:id="@+id/img_temperatura"
+        android:layout_width="@dimen/list_item_img_temperatura_size"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/logo_minsait"
+        android:paddingLeft="@dimen/list_item_temperatura_element_padding"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:paddingRight="0dp"
+        android:contentDescription="Temperatura" />
+
+    <TextView
+        android:id="@+id/txt_fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItemSmall"
+        android:textSize="@dimen/list_item_temperatura_text_size"
+        android:layout_gravity="center"
+        android:padding="@dimen/list_item_temperatura_element_padding"
+        android:text="@string/list_item_element_fecha_string" />
+
+    <TextView
+        android:id="@+id/txt_grados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItemSmall"
+        android:textSize="@dimen/list_item_temperatura_text_size"
+        android:layout_gravity="center"
+        android:padding="@dimen/list_item_temperatura_element_padding"
+        android:text="@string/list_item_element_grados_string" />
+
+</LinearLayout>

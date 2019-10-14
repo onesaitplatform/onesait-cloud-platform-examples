@@ -1,0 +1,1 @@
+arcoreimg.exe build-db --input_image_list_path=image_list_file.txt --output_db_path=basedatos_imagenes.imgdb

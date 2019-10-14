@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DeviceApplication",
+            "request": "launch",
+            "mainClass": "digitaltwin.device.DeviceApplication",
+            "projectName": "Identification"
+        }
+    ]
+}

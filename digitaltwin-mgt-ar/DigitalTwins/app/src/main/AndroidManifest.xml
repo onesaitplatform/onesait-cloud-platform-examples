@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.minsait.onesaitplatform.digitaltwins">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:name=".AppController"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- [START fcm_default_icon] -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_view_boton_tabla" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/color_fondo_recyclerview" />
+        <!-- [END fcm_default_icon] -->
+
+        <!--  This tag indicates that this application requires ARCore.  This results in the Google Play
+              Store downloading and installing ARCore along with the application. -->
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
+
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <activity
+            android:name=".Main2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".DummyActivity">
+        </activity>
+        <activity
+            android:name=".AugmentedImageActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="locked"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- [START firebase_service] -->
+        <service
+            android:name="com.minsait.onesaitplatform.digitaltwins.fcm.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+    </application>
+    <!--  This tag indicates that this application requires ARCore.  This results in the application
+          only being visible in the Google Play Store on devices that support ARCore. -->
+    <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
+    <!-- Permiso necesario para ARCore -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Permiso necesario para el webview y conectar a Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

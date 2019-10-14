@@ -1,0 +1,41 @@
+{
+  "title": "ST_Termostato",
+  "links": {
+    "properties": "thing/ST_Termostato/properties",
+    "actions": "thing/ST_Termostato/actions",
+    "events": "thing/ST_Termostato/events"
+  },
+  "description": "Digital Twin correspondiente al termostato.",
+  "properties": {
+    "temperatura": {
+      "type": "double",
+      "units": "grados",
+      "direction": "in",
+      "description": "Temperatura"
+    },
+    "fecha_dashboard": {
+      "type": "string",
+      "direction": "in",
+      "description": "Fecha formateada para el dashboard"
+    }
+  },
+  "actions": {
+    "ObtenerTemperatura": {
+      "description": "Obtiene la temperatura en el Digital Twin"
+    }
+  },
+  "events": {
+    "ping": {
+      "description": "Ping"
+    },
+    "register": {
+      "description": "Register"
+    },
+    "log": {
+      "description": "Escribe un log en la plataforma"
+    },
+    "updateshadow": {
+      "description": "Actualiza el estado del DT en la plataforma"
+    }
+  }
+}

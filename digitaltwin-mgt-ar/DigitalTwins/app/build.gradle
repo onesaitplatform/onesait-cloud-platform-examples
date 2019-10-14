@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.minsait.onesaitplatform.digitaltwins"
+
+        // Sceneform requires minSdkVersion >= 24.
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    // Sceneform libraries use language constructs from Java 8.
+    // Add these compile options if targeting minSdkVersion < 26.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
+
+    // Use the Sceneform UX Package pre-built from Maven.
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.12.0"
+
+    // Use the Sceneform UX Package built from the source files included in the sceneformux folder.
+    //api project(":sceneformux")
+
+    // Dependencias de Firebase
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-iid:20.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'androidx.work:work-runtime:2.2.0'
+}
+
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/detector_humo/model.obj',
+        'default',
+        'sampledata/detector_humo/model.sfa',
+        'src/main/assets/detector_humo')
+
+sceneform.asset('sampledata/aire_acondicionado/Air conditioner 1 effect.obj',
+        'default',
+        'sampledata/aire_acondicionado/Air conditioner 1 effect.sfa',
+        'src/main/assets/aire_acondicionado')
+
+sceneform.asset('sampledata/alarma_incendio/Fire alarm.obj',
+        'default',
+        'sampledata/alarma_incendio/Fire alarm.sfa',
+        'src/main/assets/alarma_incendio')
+
+sceneform.asset('sampledata/termostato/termostato.obj',
+        'default',
+        'sampledata/termostato/termostato.sfa',
+        'src/main/assets/termostato')
+
+apply plugin: 'com.google.gms.google-services'

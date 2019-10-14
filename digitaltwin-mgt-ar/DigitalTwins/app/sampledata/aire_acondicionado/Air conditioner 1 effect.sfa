@@ -1,0 +1,112 @@
+{
+  materials: [
+    {
+      name: 'initialShadingGroup',
+      parameters: [
+        {
+          baseColor: 'wind',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'lambert3SG',
+      parameters: [
+        {
+          baseColor: 'Air Conditioner',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'lambert6SG',
+      parameters: [
+        {
+          baseColor: 'Snowflake',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/aire_acondicionado/Air conditioner 1 effect.obj',
+    name: 'Air conditioner 1 effect',
+    recenter: 'root',
+    scale: 0.0002371999999999998,
+  },
+  samplers: [
+    {
+      file: 'sampledata/aire_acondicionado\\Snowflake.png',
+      name: 'Snowflake',
+      pipeline_name: 'Snowflake.png',
+    },
+    {
+      file: 'sampledata/aire_acondicionado\\wind.png',
+      name: 'wind',
+      pipeline_name: 'wind.png',
+    },
+    {
+      file: 'sampledata/aire_acondicionado\\Air Conditioner.png',
+      name: 'Air Conditioner',
+      pipeline_name: 'Air Conditioner.png',
+    },
+  ],
+  version: '0.54:2',
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/imgDashboard"
+    android:layout_width="@dimen/img_temperatura_width"
+    android:layout_height="@dimen/img_temperatura_height"
+    android:src="@drawable/img_cargando_dashboard"
+    android:scaleType="fitCenter" />

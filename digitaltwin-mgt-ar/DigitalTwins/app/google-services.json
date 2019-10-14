@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1093880456646",
+    "firebase_url": "https://onesaitplatformstrangerteam.firebaseio.com",
+    "project_id": "onesaitplatformstrangerteam",
+    "storage_bucket": "onesaitplatformstrangerteam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093880456646:android:f90f7f97963fb4c00c7ec7",
+        "android_client_info": {
+          "package_name": "com.minsait.onesaitplatform.digitaltwins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093880456646-j37mjjeuqb9s9qbejceonose09qlqgcl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.minsait.onesaitplatform.digitaltwins",
+            "certificate_hash": "66b2092da510ec502bf39f6fcd7292257452166f"
+          }
+        },
+        {
+          "client_id": "1093880456646-tmvl8852cvsdn6f5tbvul01f5cb994kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfhQroBYkbTn-MwKwFPtEXoacDrQBH0os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093880456646-tmvl8852cvsdn6f5tbvul01f5cb994kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
