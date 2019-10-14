@@ -1,0 +1,32 @@
+.mat-card-title{
+    font-size: 1.7vw;
+    font-weight: bold;
+}
+
+.b1{
+    font-size:10px
+}
+
+.blue {
+    color: rgb(26,59,71);
+}
+
+.mat-card{
+    padding:4%;
+    border-radius: 4px;
+}
+
+.m2{
+    margin-top:2%
+}
+
+.fr{
+    float:right
+}
+
+* {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+.mat-card {
+  font-family: 'Titillium Web', sans-serif !important;
+}

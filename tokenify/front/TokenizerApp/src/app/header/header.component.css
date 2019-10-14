@@ -1,0 +1,29 @@
+.t1{
+    margin-top: 1%;
+}
+
+.t2{
+    color:white;
+    font-size: 2.3vw;
+}
+
+.t3{
+    color:white;
+    font-size: 1.3vw;
+}
+
+.t4{
+    color:white;
+    font-size: 1vw;
+}
+
+.m1{
+    margin:2%;
+}
+
+* {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+.mat-card {
+  font-family: 'Titillium Web', sans-serif !important;
+}

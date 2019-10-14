@@ -1,0 +1,20 @@
+{
+  "/oauth-server/*": {
+    "target": "https://lab.onesaitplatform.com/",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/controlpanel/*": {
+    "target": "https://lab.onesaitplatform.com/",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/api-manager/*": {
+    "target": "https://lab.onesaitplatform.com/",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

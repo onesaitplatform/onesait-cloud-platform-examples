@@ -1,0 +1,28 @@
+<div style="width: 75%; margin-top:10%; margin:0 auto;padding-top: -20%; padding-bottom: 50px;">
+    <app-header></app-header>
+    <mat-card style="text-align: center" class="mat-card">
+        <mat-card-title class="b1 blue">{{nof}}</mat-card-title>
+        <mat-card-title class="blue">Download your tokenized dataset</mat-card-title>
+        <mat-card-title class="b1 blue">Please share your experience to display the download button</mat-card-title>
+        <div class="m2" style="margin-bottom:1%">
+            <img style="width: 4%;margin:1%" src="./assets/img/fb.png" (click)="goTo('https://www.facebook.com/')" alt="logo">
+            <img style="width: 4%;margin:1%" src="./assets/img/ig.png" (click)="goTo('https://www.instagram.com/')" alt="logo">
+          <img style="width: 4%;margin:1%" src="./assets/img/tw.png" (click)="goTo('https://twitter.com/')" alt="logo">
+          <img style="width: 4%;margin:1%" src="./assets/img/android.png" (click)="goTo('https://github.com/onesaitplatform/onesaitplatform-revolution-revolution-team/blob/master/resources/tokenifyApp.apk')" alt="logo">
+        </div>
+
+        <ngb-alert [dismissible]="false" *ngIf="!tokenifyService.se || !tokenifyService.op">
+            Wait a second to download
+        </ngb-alert>
+
+        <div *ngIf="tokenifyService.se && tokenifyService.op" class="m2"><button class="btn btn-primary m1"
+            style="background: rgb(26,59,71);font-size:0.8rem"  (click)="downloadFile()">Download file</button></div>
+        <div *ngIf="tokenifyService.se && tokenifyService.op" class="m2"><button class="btn btn-primary m1"
+            style="background: rgb(26,59,71);font-size:0.8rem"  (click)="getTokenOnWindow()">Download Token</button></div>
+
+
+        <br>
+        <hr>
+        <app-footer></app-footer>
+    </mat-card>
+</div>

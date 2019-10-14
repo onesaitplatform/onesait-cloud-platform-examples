@@ -1,0 +1,59 @@
+<div style="width: 75%; margin-top:10%; margin:0 auto;padding-top: -20%; padding-bottom: 50px;">
+    <app-header></app-header>
+    <ngb-alert style="text-align: center" [dismissible]="false" *ngIf="sessionuser!='guest'">
+        Welcome {{sessionuser}}, how are you? We are here for you |
+        <span style="cursor: pointer" (click)="logout()">click to logout</span>
+      </ngb-alert>
+      <ngb-alert style="text-align: center" [dismissible]="false" *ngIf="sessionuser=='guest'">
+        Welcome!, how are you? You are a guest, are you happy to be here?
+      </ngb-alert>
+    <mat-card style="text-align: center;" mat-card>
+        <mat-card-title class="b1 blue">{{nof}}</mat-card-title>
+        <mat-card-title class="blue">What fields would you like to tokenize?</mat-card-title>
+        <table mat-table [dataSource]="dataSource" MatTable class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> Field Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.fieldName}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Field Sample </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Tokenize </th>
+                <td mat-cell *matCellDef="let element">
+                    <section class="example-section">
+                        <mat-slide-toggle class="example-margin" name="{{element.fieldName}}" [color]="color" [checked]="checked" (change)="fieldChangeAction(element.fieldName)"
+                            [disabled]="disabled">
+                        </mat-slide-toggle>
+                    </section>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-card-title class="blue mt">What tokenization method do you prefer?</mat-card-title>
+
+        <mat-radio-group aria-labelledby="adio-group-label" class="radio-group"
+            [(ngModel)]="this.tokenifyService.favoriteTk">
+            <mat-radio-button class="radio-button" *ngFor="let tk of tks" [value]="tk">
+                {{tk}}
+            </mat-radio-button>
+        </mat-radio-group>
+
+        <button (click)="nextToD()" style="background: rgb(26,59,71);font-size:0.8rem" class="btn btn-primary m1 fr">Next</button>
+        <br> <br>
+        <hr>
+        <app-footer></app-footer>
+    </mat-card>
+</div>
