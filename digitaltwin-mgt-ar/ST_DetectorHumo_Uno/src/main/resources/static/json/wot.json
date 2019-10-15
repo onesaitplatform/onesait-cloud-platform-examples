@@ -1,0 +1,42 @@
+{
+  "title": "ST_DetectorHumo",
+  "links": {
+    "properties": "thing/ST_DetectorHumo/properties",
+    "actions": "thing/ST_DetectorHumo/actions",
+    "events": "thing/ST_DetectorHumo/events"
+  },
+  "description": "Digital Twin correspondiente al detector de humo",
+  "properties": {
+    "humoDetectado": {
+      "type": "boolean",
+      "units": "undefined",
+      "direction": "in",
+      "description": "Indica que se ha detectado humo"
+    }
+  },
+  "actions": {
+    "toggleHumoDetectado": {
+      "description": "Acción que se cambia de cambiar el estado del detector de humo"
+    }
+  },
+  "events": {
+    "ping": {
+      "description": "Ping"
+    },
+    "register": {
+      "description": "Register"
+    },
+    "humoNoDetectadoEvent": {
+      "description": "Indica que no se ha detectado humo"
+    },
+    "humoDetectadoEvent": {
+      "description": "Indica que se ha detectado humo"
+    },
+    "updateShadow": {
+      "description": "Actualiza el estado del DT en la plataforma"
+    },
+    "log": {
+      "description": "Escribe en el log"
+    }
+  }
+}

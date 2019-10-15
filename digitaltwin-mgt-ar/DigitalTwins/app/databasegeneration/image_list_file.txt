@@ -1,0 +1,5 @@
+Alarma 01|C:/Git/onesaitplatform-revolution-stranger-team/DigitalTwins/app/databasegeneration/Alarma01.png
+Humo 01|C:/Git/onesaitplatform-revolution-stranger-team/DigitalTwins/app/databasegeneration/Humo01.png
+Salida de Aire 01|C:/Git/onesaitplatform-revolution-stranger-team/DigitalTwins/app/databasegeneration/SalidaAire01.png
+Salida de Aire 02|C:/Git/onesaitplatform-revolution-stranger-team/DigitalTwins/app/databasegeneration/SalidaAire02.png
+Termostato 01|C:/Git/onesaitplatform-revolution-stranger-team/DigitalTwins/app/databasegeneration/Termostato01.png

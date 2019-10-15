@@ -1,0 +1,28 @@
+server:
+   port: 21002
+   contextPath: /Alarma
+   ip: onesaitrevolution.ddns.net
+
+spring:
+   application.name: ST_Alarma_Uno
+
+api.key: 1f93ec27a73a4dfea72c50c0a6c58a44
+
+device:
+   id: ST_Alarma_Uno
+   rest:
+     local:
+        schema: http
+        network:
+           interface: eth0
+           ipv6: false
+     basepath: /Alarma
+   register.fail.retry.seconds: 60
+   ping.interval.seconds: 10
+   logic.main.loop.delay.seconds: 30
+   broker:
+      rest:
+         enable: true
+         swaggerhost: http://localhost:21002/Alarma
+
+onesaitplatform.digitaltwin.broker.rest: https://lab.onesaitplatform.com/digitaltwinbroker/
