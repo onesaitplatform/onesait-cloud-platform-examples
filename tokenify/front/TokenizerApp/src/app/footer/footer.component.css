@@ -1,0 +1,22 @@
+.b1{
+    font-size:10px;
+    margin: 1%!important;
+}
+
+.blue {
+    color:#2e75b5
+}
+
+
+.mat-card-image-2 {
+    width: 15%;
+    margin: 0 -16px 16px -16px;
+    margin-left: 5%;
+}
+
+* {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+.mat-card {
+  font-family: 'Titillium Web', sans-serif !important;
+}

@@ -1,0 +1,273 @@
+%python3
+
+# Imports
+from onesaitplatform.files import FileManager
+from onesaitplatform.iotbroker import DigitalClient
+import warnings
+import datetime
+
+# Input
+file_id = z.input('file_id')
+separator = z.input('separator')
+user = z.input('user')
+USER_TOKEN = z.input('USER_TOKEN')
+
+# Parameters
+HOST = 'iotbrokerservice'
+HOST_FILE = 'lab.onesaitplatform.com'
+PORT = 19000
+IOT_CLIENT = 'TokenifyJobsClient'
+IOT_CLIENT_TOKEN = 'c5f225e206d6492ca9f80510961947c8'
+PROTOCOL = 'http'
+AVOID_SSL_CERTIFICATE = False
+ontology = 'tokenify_jobs'
+date_format = '%Y-%m-%d'
+
+# Init
+warnings.filterwarnings('ignore')
+
+# Client
+client = DigitalClient(host = HOST, port= PORT, iot_client = IOT_CLIENT, iot_client_token = IOT_CLIENT_TOKEN)
+client.protocol = PROTOCOL
+client.avoid_ssl_certificate = AVOID_SSL_CERTIFICATE
+client.join()
+
+# File
+manager = FileManager(host = HOST_FILE, user_token = USER_TOKEN)
+downloaded, info = manager.download_file(file_id)
+
+# Fields
+num_lines = 100
+filename = info['name']
+f = open(filename, 'r')
+num_lines = sum(1 for line in open(filename, 'r'))
+fields = f.readline()
+fields_list = fields.split(separator)
+values = f.readline()
+values_list = values.split(separator)
+
+# Ontology
+now = datetime.datetime.now()
+new_entry = {
+    ontology: dict(user = user, id = file_id,
+        filename = filename, separator = separator,
+        timestamp = now.strftime(date_format), hour = now.hour,
+        weekday = now.strftime('%A'),
+        num_lines = num_lines)
+}
+client.insert(ontology, [ new_entry ])
+
+# Return
+json = { 'id': file_id, 
+    'fields': fields_list, 
+    'values': values_list }
+print(json)
+
+# Close
+client.leave()
+
+%python3
+
+# Imports
+import datetime
+import csv
+import pyffx
+
+# Inputs
+file_id = z.input('file_id')
+user = z.input('user')
+flags = z.input('flags')
+method = z.input('method')
+USER_TOKEN = z.input('USER_TOKEN')
+
+# Parameters
+HOST = 'iotbrokerservice'
+HOST_FILE = 'lab.onesaitplatform.com'
+PORT = 19000
+IOT_CLIENT = 'TokenifyJobsClient'
+IOT_CLIENT_TOKEN = 'c5f225e206d6492ca9f80510961947c8'
+PROTOCOL = 'http'
+AVOID_SSL_CERTIFICATE = False
+ontology = 'tokenify_jobs'
+url_download = 'https://lab.onesaitplatform.com/controlpanel/files/'
+extension_out = '.out'
+extension_secret = '.secret'
+newline = '\n'
+
+# Tokenizer
+class Tokenizer:
+
+    # Attributes
+    secret = None
+    method = None
+    engine = None
+    methods = [ 'FPE', 'AES', 'MAP' ]
+    alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\''
+    default_char = '?'
+    utf8_encoding = 'utf-8'
+    url_secret = ''
+
+    def save_secret(self, id):
+        filename_secret = id + extension_secret
+        f = open(filename_secret, 'w+')
+        f.writelines(str(
+            self.secret))
+        secret_id = manager.upload_file(filename_secret, filename_secret)[1]['id']
+        self.url_secret = url_download + secret_id
+        return
+    
+    def get_url_secret(self):
+        return self.url_secret
+
+    def __init__(self, method, id):
+        self.method = method
+        if (method == self.methods[0]):
+            self.secret = (str(
+                datetime.datetime.now().timestamp()) + '-' + id).encode()
+        elif (method == self.methods[1]):
+            self.secret = Fernet.generate_key()
+            self.engine = Fernet(self.secret)
+        elif (method == self.methods[2]):
+            self.engine = dict()
+            alphabet_list = list(self.alphabet)
+            random.shuffle(alphabet_list)
+            alphabet_map = ''.join(
+                alphabet_list)
+            self.secret = self.alphabet + \
+                newline + alphabet_map
+            for i, new_ch in enumerate(alphabet_map):
+                self.engine[self.alphabet[i]] = new_ch
+        self.save_secret(id)
+        return
+
+    def tokenize(self, value):
+        value = value.encode(
+            'ascii', errors = 'ignore')
+        token = ''
+        if (self.method == self.methods[0]):
+            token = self.tokenize_fpe(value)
+        elif (self.method == self.methods[1]):
+            token = self.tokenize_aes(value)
+        elif (self.method == self.methods[2]):
+            token = self.tokenize_map(value)
+        return(token)
+
+    def tokenize_aes(self, value):
+        value = str(value).encode()
+        value_enc = self.engine.encrypt(value)
+        value_enc = value_enc.decode(
+            self.utf8_encoding)
+        return(value_enc)
+
+    def tokenize_map(self, value):
+        value = str(value).encode()
+        value = value.decode(
+            self.utf8_encoding)
+        value_enc = ''
+        for ch in value:
+            if (ch in self.alphabet):
+                value_enc += self.engine[ch]
+            else: value_enc += self.default_char
+        return(value_enc)
+
+    def tokenize_fpe(self, value):
+        token = ''
+        value = value.decode(
+            self.utf8_encoding)
+        # String
+        if (type(value) is str):
+            pending = True
+            prev_ch = ''
+            while (pending):
+                try:
+                    e = pyffx.String(self.secret, alphabet = self.alphabet,
+                        length = len(str(value)))
+                    token = e.encrypt(value)
+                    pending = False
+                except Exception as err:
+                    ch = str(err).split("'")[1]
+                    if (ch == prev_ch):
+                        value = value.replace(ch,
+                            self.default_char)
+                    else:
+                        self.alphabet += ch
+                        prev_ch = ch
+        # Integer
+        elif (type(value) is int):
+            e = pyffx.Integer(self.secret,
+                length = len(str(value)))
+            token = e.encrypt(value)
+        # Float
+        elif (type(value) is float):
+            integer, decimal = str(value).split('.')
+            e = pyffx.Integer(self.secret,
+                length = len(str(integer)))
+            token += str(e.encrypt(integer)) + '.'
+            e = pyffx.Integer(self.secret,
+                length = len(str(decimal)))
+            token += str(e.encrypt(decimal))
+            token = float(token)
+        return(token)
+
+# Tokenize: line
+def tokenize_line(
+        flags, tokenizer, line, separator):
+    line_tokenized = list()
+    for i, value in enumerate(line):
+        if (flags[i] == 1):
+            line_tokenized.append(
+                tokenizer.tokenize(value))
+        else: line_tokenized.append(
+            value)
+    return(separator.join(
+        line_tokenized))
+
+# Save
+def save_file( id, output):
+    filename_out = file_id + extension_out
+    f_output = open(filename_out, 'w+')
+    f_output.writelines(''.join(output))
+    f_output.flush()
+    f_output.close()
+    output_id = manager.upload_file(filename_out, filename_out)[1]['id']
+    return(url_download + output_id)
+
+# CSV
+def csv_reader(f, separator):
+    return(csv.reader(f, quotechar = '"', delimiter = separator,
+        quoting = csv.QUOTE_ALL, skipinitialspace = True))
+
+# Client
+client = DigitalClient(host = HOST, port= PORT, iot_client = IOT_CLIENT, iot_client_token = IOT_CLIENT_TOKEN)
+client.protocol = PROTOCOL
+client.avoid_ssl_certificate = AVOID_SSL_CERTIFICATE
+client.join()
+
+# Job details
+query = "SELECT * FROM tokenify_jobs as c WHERE tokenify_jobs.id='" + file_id + "'"
+entry = client.query(ontology = ontology, query = query, query_type = 'SQL')[1][0][ontology]
+filename = entry['filename']
+
+# File
+manager = FileManager(host = HOST_FILE, user_token = USER_TOKEN)
+
+# Tokenize
+tokenizer = Tokenizer(method, file_id)
+output = list()
+f = open(filename, 'r')
+for i, line in enumerate(csv_reader(f, separator)):
+    if (i == 0):
+        output.append(''.join(line))
+    line_tokenized = tokenize_line(
+        flags, tokenizer, line, separator)
+    output.append(line_tokenized + newline)
+
+# Return    
+link_download = save_file(id, output)
+json = { 'id': file_id, 
+    'output': link_download, 
+    'secret': tokenizer.get_url_secret() }
+print(json)
+
+# Close
+client.leave()

@@ -1,0 +1,40 @@
+.login-cont {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-cont > * {
+    width: 60%;
+  }
+
+  .mat-card-image {
+    width: 65%;
+    margin: 0 -16px 16px -16px;
+}
+
+.mat-card-image-2 {
+    width: 35%;
+    margin: 0 -16px 16px -16px;
+    margin-left: 10%;
+}
+
+.mat-card-title{
+    font-size: 1.7vw;
+
+}
+
+.login-button {
+    margin-right: 3%;
+}
+
+.guest-button {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+* {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+.mat-card {
+  font-family: 'Titillium Web', sans-serif !important;
+}

@@ -1,0 +1,57 @@
+<div style="padding-top: 15%;padding-bottom: 15%" >
+<mat-card style="width: 60%;margin-top:10%; margin:0 auto;color:rgb(26,59,71);text-align: center">
+    <mat-card-header class="row justify-content-center">
+        <mat-card-title>Login to Tokenify</mat-card-title>
+    </mat-card-header>
+  <br />
+    <div style="width: 100%; height: 100px">
+      <img mat-card-image src="./assets/img/logo.png" alt="logo style=" style="width: 40%;">
+    </div>
+    <div style="text-align: center">
+      <mat-card-content class="login-cont">
+          <mat-form-field style="margin-left: 60px;">
+              <input id="username" name="username" [(ngModel)]="username" #name="ngModel" matInput
+                  placeholder="Username" required>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 60px;">
+              <input type="password" id="psw" name="psw" [(ngModel)]="psw" #name="ngModel" matInput
+                  placeholder="Password" required>
+          </mat-form-field>
+
+          <div *ngIf="submitLogin && (!username || !psw)" class="alert alert-danger">
+
+              <div *ngIf="!username">
+                  Username is required.
+              </div>
+
+              <div *ngIf="!psw">
+                  Password is required.
+              </div>
+
+
+          </div>
+          <div class="row justify-content-center" style="width: 110%!important" >
+          <ngb-alert class="col-8" *ngIf="loginService.showOK">
+              Login Success !
+          </ngb-alert>
+          <ngb-alert class="col-8" *ngIf="loginService.showKO" style="background-color: darkred; color: white; ">
+            Login Fail !
+          </ngb-alert>
+        </div>
+      </mat-card-content>
+    </div>
+    <div class="row  justify-content-center">
+    <button class="col-4" style="background-color: rgb(26,59,71);color:white" (click)="login()" class="login-button" mat-raised-button>Login</button>
+    <span>|</span>
+    <button class="col-4" style="background-color: rgb(26,59,71);color:white" onClick="parent.location='https://lab.onesaitplatform.com/controlpanel/login'" class="guest-button" mat-raised-button>Sign Up</button>
+    <span>|</span>
+    <button class="col-4" style="background-color: rgb(26,59,71);color:white" (click)="skipGuess()" class="guest-button" mat-raised-button>Guest</button>
+  </div>
+    <hr>
+    <div style="width: 100%; height: 30px">
+      <img class="mat-card-image-2" src="https://www.comillas.edu/media/k2/items/cache/82666daada52f04f02214f4311d23448_L.jpg" alt="rtLogo" style="width: 30%; float: right;margin-right: 10px;" >
+    </div>
+
+
+</mat-card>
+</div>

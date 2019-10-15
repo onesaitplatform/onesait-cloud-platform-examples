@@ -1,0 +1,47 @@
+.mat-card-title{
+    font-size: 1.7vw;
+    font-weight: bold;
+}
+
+.b1{
+    font-size:10px
+}
+
+.blue {
+  color: rgb(26,59,71);
+}
+
+.fr{
+    float:right
+}
+
+table {
+    width: 100%;
+    margin-top: 3%
+  }
+
+  .mat-card{
+      padding:4%;
+      border-radius: 4px;
+  }
+
+  .mt {
+    margin-top: 3%!important
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+
+  .radio-button {
+    margin: 5px;
+  }
+
+* {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+.mat-card {
+  font-family: 'Titillium Web', sans-serif !important;
+}
