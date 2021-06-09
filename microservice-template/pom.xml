@@ -41,18 +41,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 	<repositories>
      	<repository>
             <id>onesait</id>
-            <url>http://nexus.onesaitplatform.com/nexus/content/repositories/releases/</url>
+            <url>https://nexus.onesaitplatform.com/nexus/content/repositories/releases/</url>
         </repository>
     </repositories>
 	<build>
